@@ -79,6 +79,7 @@ function draw() {
     for (let i = 0; i < tracks.length; i++){
     tracks[i].update();
     tracks[i].display();
+    tracks[i].edge();
   }
 }
 
@@ -272,6 +273,12 @@ class Track {
     // noFill();
     square(this.x,this.y,this.r,this.squareRandom);
     // ellipse(this.x,this.y,this.r);
+  }
+
+  edge() {
+    if(this.x - this.r*2 > width){
+      this.x = -this.r*2;
+    }
   }
 
 
