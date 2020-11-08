@@ -22,7 +22,7 @@ function setup() {
 }
 
 function draw() {
-  background(50);
+  background(255);
   textSize(20);
   noStroke();
 
@@ -38,7 +38,7 @@ function draw() {
 
   if (mouseButton == LEFT) {
 
-  background(50);
+  background(255);
   textSize(20);
   noStroke();
   fill(200);
@@ -188,7 +188,7 @@ class Player {
 
     strokeWeight(6);
     strokeCap(ROUND);
-    stroke(250);
+    stroke(50);
     line(mouseX-7,mouseY-10, mouseX-t1,mouseY-7);
     line(mouseX-5,mouseY-10, mouseX-t2,mouseY+5);
     line(mouseX,mouseY-10, mouseX-t2,mouseY+15);
@@ -197,7 +197,7 @@ class Player {
 
     //손바닥
     noStroke();
-    fill(250);
+    fill(50);
     ellipse (this.Mpos.x, this.Mpos.y, this.w);
 
 
@@ -250,7 +250,10 @@ class Track {
     this.x = x;
     this.y = y;
     this.r = r;
+    this.strokeRandom = random(1,5);
     this.lifespan = 255.0;
+    this.rc = color(200,200,150);
+    this.rc.setRed(128 + mouseY *sin(millis()/1000))
   }
 
   update() {
@@ -260,8 +263,8 @@ class Track {
   }
 
   display() {
-    stroke(255, this.lifespan);
-    strokeWeight(1);
+    stroke(this.rc, this.lifespan);
+    strokeWeight(this.strokeRandom);
     noFill();
     ellipse(this.x,this.y,this.r);
   }
