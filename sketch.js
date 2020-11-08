@@ -134,7 +134,7 @@ class Yoyo {
   }
   edge(){
 
-    if(this.pos.y > height || this.pos.y < 0){
+    if(this.pos.y > height+1 || this.pos.y < 0){
       this.vel.mult(-1);
       let r = random(10,50);
       let t = new Track(this.x+mouseX+lx,this.y+mouseY+ly,r);
@@ -252,9 +252,10 @@ class Track {
     this.r = r;
     this.strokeRandom = random(1,5);
     this.lifespan = 255.0;
-    this.rc = color(200,200,150,this.lifespan);
+    this.rc = color(200,200,150,200);
     this.rc.setRed(128 + mouseY *sin(millis()/1000))
-    this.squareRandom = random(5,30);
+    this.squareRandom = random(0,50);
+    this.fillRandom = random(0,255);
   }
 
   update() {
@@ -267,7 +268,8 @@ class Track {
   display() {
     stroke(this.rc);
     strokeWeight(this.strokeRandom);
-    noFill();
+    fill(255,this.fillRandom);
+    // noFill();
     square(this.x,this.y,this.r,this.squareRandom);
     // ellipse(this.x,this.y,this.r);
   }
