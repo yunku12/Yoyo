@@ -12,7 +12,7 @@ let armColor;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, 800);
   y1 = new Yoyo(mouseX, mouseY, 50);
   gravity = createVector(0,0.1);
 
@@ -231,7 +231,7 @@ class Player {
   line() {
     lineLength = p5.Vector.sub(yoyoPos, p1.Mpos);
     lx = map(lineLength.x, 0, width, 0,10);
-    ly = map(lineLength.y, 0, height, 0, 200);
+    ly = map(lineLength.y, 0, height, 0, 400);
 
     stroke(100);
     strokeWeight(1);
