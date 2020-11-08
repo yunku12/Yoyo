@@ -252,21 +252,24 @@ class Track {
     this.r = r;
     this.strokeRandom = random(1,5);
     this.lifespan = 255.0;
-    this.rc = color(200,200,150);
+    this.rc = color(200,200,150,this.lifespan);
     this.rc.setRed(128 + mouseY *sin(millis()/1000))
+    this.squareRandom = random(5,30);
   }
 
   update() {
     this.r = this.r +0.1
-    this.y = this.y +0.1;
+    this.x = this.x +0.9;
     this.lifespan -= 1;
+
   }
 
   display() {
-    stroke(this.rc, this.lifespan);
+    stroke(this.rc);
     strokeWeight(this.strokeRandom);
     noFill();
-    ellipse(this.x,this.y,this.r);
+    square(this.x,this.y,this.r,this.squareRandom);
+    // ellipse(this.x,this.y,this.r);
   }
 
 
